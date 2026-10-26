@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A simple, responsive to-do list app." />
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">PLAN YOUR DAY</p>
+        <h1>My To-Do List</h1>
+        <p class="subtitle">Small steps make big progress.</p>
+      </div>
+      <div class="date-chip" id="todayDate" aria-label="Today's date"></div>
+    </header>
+
+    <section class="composer" aria-label="Add a task">
+      <form id="taskForm">
+        <label class="sr-only" for="taskInput">New task</label>
+        <input id="taskInput" type="text" maxlength="160" placeholder="What do you need to do?" autocomplete="off" required />
+        <button type="submit" class="add-button">Add task <span aria-hidden="true">+</span></button>
+      </form>
+      <p class="form-hint" id="formHint">Press Enter or click Add task.</p>
+    </section>
+
+    <section class="task-panel" aria-label="Your tasks">
+      <div class="toolbar">
+        <div>
+          <h2>Your tasks</h2>
+          <p id="taskSummary" class="task-summary">0 tasks left</p>
+        </div>
+        <div class="filters" role="group" aria-label="Filter tasks">
+          <button class="filter active" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter" type="button" data-filter="active" aria-pressed="false">Active</button>
+          <button class="filter" type="button" data-filter="completed" aria-pressed="false">Completed</button>
+        </div>
+      </div>
+
+      <ul id="taskList" class="task-list"></ul>
+      <div id="emptyState" class="empty-state">
+        <div class="empty-icon" aria-hidden="true">✓</div>
+        <h3>No tasks here yet</h3>
+        <p>Add a task above and make today count.</p>
+      </div>
+
+      <footer class="list-footer">
+        <span id="completedSummary">0 completed</span>
+        <button id="clearCompleted" type="button" class="text-button">Clear completed</button>
+      </footer>
+    </section>
+
+    <p class="app-note">Your tasks are saved automatically in this browser.</p>
+  </main>
+  <div id="liveMessage" class="sr-only" aria-live="polite"></div>
+</body>
+</html>
